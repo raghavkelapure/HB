@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shruti 🎂</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f0f1a,#1a1830);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    color:white;
+    position:relative;
+}
+
+/* ✨ Top Lights */
+.top-lights{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-evenly;
+    padding:10px 0;
+    z-index:5;
+}
+.bulb{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    position:relative;
+    animation:blink 1.5s infinite alternate;
+}
+.bulb:nth-child(1){background:#ffd700; box-shadow:0 0 20px #ffd700;}
+.bulb:nth-child(2){background:#ff4d6d; box-shadow:0 0 20px #ff4d6d;}
+.bulb:nth-child(3){background:#66ccff; box-shadow:0 0 20px #66ccff;}
+.bulb:nth-child(4){background:#00ffcc; box-shadow:0 0 20px #00ffcc;}
+.bulb:nth-child(5){background:#ff66ff; box-shadow:0 0 20px #ff66ff;}
+.bulb::before{
+    content:"";
+    position:absolute;
+    top:-25px;
+    left:6px;
+    width:2px;
+    height:25px;
+    background:white;
+}
+@keyframes blink{
+    from{opacity:0.5;}
+    to{opacity:1;}
+}
+
+/* 🎈 Balloon */
+.left-balloon{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+}
+.left-balloon img{
+    width:220px;
+    animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* 📸 Photo */
+.right-photo{
+    position:absolute;
+    right:20px;
+    bottom:20px;
+}
+.right-photo img{
+    width:260px;
+    height:340px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+/* 🎂 Card */
+.card{
+    position:relative;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    width:420px;
+    z-index:2;
+}
+
+#wholeCake{
+    font-size:90px;
+    cursor:pointer;
+}
+
+.split-cake{
+    display:none;
+    position:relative;
+    height:100px;
+    margin-top:20px;
+}
+.half{
+    position:absolute;
+    font-size:80px;
+    transition:1s ease;
+}
+.left-half{ left:80px; }
+.right-half{ right:80px; }
+
+.knife{
+    position:absolute;
+    font-size:55px;
+    top:135px;
+    left:-80px;
+    transition:1s ease;
+}
+
+#msg{
+    display:none;
+    margin-top:20px;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* 🎆 Sky Crackers */
+.spark{
+    position:absolute;
+    width:4px;
+    height:75px;
+    border-radius:8px;
+    transform-origin:center bottom;
+    animation:explode 1.5s ease-out forwards;
+}
+@keyframes explode{
+    0%{
+        opacity:1;
+        transform:rotate(var(--angle)) scale(0.2);
+    }
+    100%{
+        opacity:0;
+        transform:rotate(var(--angle)) scale(1);
+    }
+}
+
+/* 🎇 Anar */
+.anar{
+    position:absolute;
+    width:3px;
+    height:25px;
+    border-radius:2px;
+    animation:anarBlast 1.2s linear forwards;
+}
+@keyframes anarBlast{
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-180px) translateX(var(--x)) scale(0.3);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-lights">
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+</div>
+
+<div class="left-balloon">
+    <img src="https://pngimg.com/uploads/balloon/balloon_PNG4966.png">
+</div>
+
+<div class="right-photo">
+    <img src="C:\Users\Raghav\Downloads\WhatsApp Image 2026-03-28 at 12.53.49 PM.jpeg" alt="Shruti Photo">
+</div>
+
+<div class="card">
+
+    <div class="knife" id="knife">🔪</div>
+
+    <h2>🎉 Happy Birthday Shruti 🎉</h2>
+    <p>Click the cake to cut 🎂</p>
+
+    <div id="wholeCake" onclick="cutCake()">🎂</div>
+
+    <div class="split-cake" id="splitCake">
+        <div class="half left-half" id="leftHalf">🍰</div>
+        <div class="half right-half" id="rightHalf">🍰</div>
+    </div>
+
+    <div id="msg">
+       💖 Dear Shruti,<br><br>
+
+Happy Birthday 🎉<br>
+To my best friend, my biggest support, and the most amazing person I know 💕<br><br>
+
+You are truly one of the kindest, strongest, and most beautiful souls I’ve ever met ✨<br>
+Your smile can brighten any day, and your caring nature makes everyone feel special 💖<br>
+I feel really lucky to have you in my life 🌸<br><br>
+
+I know I’m not perfect, and I’m really sorry if I ever hurt you 😔<br>
+Please know that you mean the world to me, and I never want to lose you 💕<br><br>
+
+May God bless you with endless happiness, success, and love 💖<br>
+🎂 Happy Birthday once again 🎊
+
+    </div>
+
+</div>
+
+<!-- 🎵 Song -->
+<audio id="birthdaySong" loop>
+    <source src="C:\Users\Raghav\Downloads\nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let started = false;
+
+function cutCake(){
+
+    if(started) return;
+    started = true;
+
+    // 🎵 Song starts only after click
+    document.getElementById("birthdaySong").play();
+
+    document.getElementById("knife").style.left = "180px";
+
+    setTimeout(() => {
+        document.getElementById("wholeCake").style.display = "none";
+        document.getElementById("splitCake").style.display = "block";
+
+        document.getElementById("leftHalf").style.transform = "translateX(-50px)";
+        document.getElementById("rightHalf").style.transform = "translateX(50px)";
+    }, 1000);
+
+    setTimeout(() => {
+        document.getElementById("msg").style.display = "block";
+    }, 1800);
+
+    setInterval(createRoundFirework, 1200);
+    setInterval(createAnar, 700);
+}
+
+function createRoundFirework(){
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * (window.innerHeight * 0.45);
+
+    let colors = ["#ff4d6d","#66ccff","#ffd700","#ff9933","#ff66ff","#00ffcc"];
+
+    for(let i=0;i<36;i++){
+        let spark=document.createElement("div");
+        spark.className="spark";
+
+        let color=colors[Math.floor(Math.random()*colors.length)];
+
+        spark.style.left=x+"px";
+        spark.style.top=y+"px";
+        spark.style.background=color;
+        spark.style.boxShadow=`0 0 15px ${color},0 0 30px ${color}`;
+        spark.style.setProperty("--angle",(i*10)+"deg");
+
+        document.body.appendChild(spark);
+        setTimeout(()=>spark.remove(),1500);
+    }
+}
+
+function createAnar(){
+    let x=Math.random()*window.innerWidth;
+    let y=window.innerHeight-20;
+
+    let colors=["#ffd700","#ffffff","#ff9933"];
+
+    for(let i=0;i<18;i++){
+        let anar=document.createElement("div");
+        anar.className="anar";
+
+        let spread=(Math.random()-0.5)*120+"px";
+        let color=colors[Math.floor(Math.random()*colors.length)];
+
+        anar.style.left=x+"px";
+        anar.style.top=y+"px";
+        anar.style.background=color;
+        anar.style.boxShadow=`0 0 10px ${color}`;
+        anar.style.setProperty("--x",spread);
+
+        document.body.appendChild(anar);
+        setTimeout(()=>anar.remove(),1200);
+    }
+}
+</script>
+
+</body>
+</html>
