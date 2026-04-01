@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,167 +7,116 @@
 <title>Happy Birthday Shruti 🎂</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#0f0f1a,#1a1830);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    font-family:Arial;
+    background:radial-gradient(circle,#1a1a40,#0a0a1f,#000);
+    color:white;
     height:100vh;
     overflow:hidden;
-    color:white;
-    position:relative;
 }
 
-/* ✨ Top Lights */
+/* Lights */
 .top-lights{
-    position:absolute;
+    position:fixed;
     top:0;
-    left:0;
     width:100%;
     display:flex;
-    justify-content:space-evenly;
-    padding:10px 0;
-    z-index:5;
+    justify-content:space-around;
+    padding:8px;
 }
 .bulb{
-    width:14px;
-    height:14px;
-    border-radius:50%;
-    position:relative;
+    width:10px;height:10px;border-radius:50%;
     animation:blink 1.5s infinite alternate;
 }
-.bulb:nth-child(1){background:#ffd700; box-shadow:0 0 20px #ffd700;}
-.bulb:nth-child(2){background:#ff4d6d; box-shadow:0 0 20px #ff4d6d;}
-.bulb:nth-child(3){background:#66ccff; box-shadow:0 0 20px #66ccff;}
-.bulb:nth-child(4){background:#00ffcc; box-shadow:0 0 20px #00ffcc;}
-.bulb:nth-child(5){background:#ff66ff; box-shadow:0 0 20px #ff66ff;}
-.bulb::before{
-    content:"";
-    position:absolute;
-    top:-25px;
-    left:6px;
-    width:2px;
-    height:25px;
-    background:white;
-}
-@keyframes blink{
-    from{opacity:0.5;}
-    to{opacity:1;}
-}
+.bulb:nth-child(1){background:#ffd700;}
+.bulb:nth-child(2){background:#ff4d6d;}
+.bulb:nth-child(3){background:#66ccff;}
+.bulb:nth-child(4){background:#00ffcc;}
+.bulb:nth-child(5){background:#ff66ff;}
 
-/* 🎈 Balloon */
-.left-balloon{
-    position:absolute;
-    left:20px;
-    bottom:20px;
-}
-.left-balloon img{
-    width:220px;
-    animation:float 4s ease-in-out infinite;
-}
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-}
+@keyframes blink{from{opacity:0.3;}to{opacity:1;}}
 
-/* 📸 Photo */
-.right-photo{
-    position:absolute;
-    right:20px;
-    bottom:20px;
-}
-.right-photo img{
-    width:260px;
-    height:340px;
+/* Balloon */
+.balloon{position:fixed;left:5px;bottom:10px;}
+.balloon img{width:70px;}
+
+/* Photo */
+.photo{position:fixed;right:5px;bottom:10px;}
+.photo img{
+    width:80px;
+    height:110px;
+    border-radius:10px;
     object-fit:cover;
-    border-radius:20px;
 }
 
-/* 🎂 Card */
+/* Card */
 .card{
-    position:relative;
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;max-width:300px;
     background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    padding:40px;
-    border-radius:25px;
-    text-align:center;
-    width:420px;
-    z-index:2;
+    padding:15px;border-radius:15px;text-align:center;
 }
 
-#wholeCake{
-    font-size:90px;
-    cursor:pointer;
+/* Knife */
+#knife{
+    position:absolute;
+    top:90px;
+    left:-60px;
+    font-size:35px;
+    transition:1s ease;
 }
 
-.split-cake{
+/* Cake */
+#cake{font-size:60px;cursor:pointer;}
+
+/* Split */
+.split{
     display:none;
+    height:60px;
     position:relative;
-    height:100px;
-    margin-top:20px;
 }
-.half{
+.part{
     position:absolute;
-    font-size:80px;
-    transition:1s ease;
+    font-size:45px;
+    transition:1s;
 }
-.left-half{ left:80px; }
-.right-half{ right:80px; }
-
-.knife{
-    position:absolute;
-    font-size:55px;
-    top:135px;
-    left:-80px;
-    transition:1s ease;
-}
+.left{left:40px;}
+.right{right:40px;}
 
 #msg{
     display:none;
-    margin-top:20px;
-    line-height:1.7;
-    font-size:15px;
+    margin-top:10px;
+    font-size:13px;
 }
 
-/* 🎆 Sky Crackers */
+/* Crackers */
 .spark{
     position:absolute;
     width:4px;
-    height:75px;
-    border-radius:8px;
-    transform-origin:center bottom;
-    animation:explode 1.5s ease-out forwards;
+    height:20px;
+    border-radius:2px;
+    transform-origin:bottom center;
+    animation:burst 1.2s forwards;
 }
-@keyframes explode{
-    0%{
-        opacity:1;
-        transform:rotate(var(--angle)) scale(0.2);
-    }
-    100%{
-        opacity:0;
-        transform:rotate(var(--angle)) scale(1);
-    }
+@keyframes burst{
+    0%{opacity:1;transform:rotate(var(--angle)) translateY(0);}
+    100%{opacity:0;transform:rotate(var(--angle)) translateY(-120px);}
 }
 
-/* 🎇 Anar */
+/* Anar */
 .anar{
     position:absolute;
     width:3px;
-    height:25px;
-    border-radius:2px;
-    animation:anarBlast 1.2s linear forwards;
+    height:20px;
+    animation:anarBlast 1s forwards;
 }
 @keyframes anarBlast{
-    0%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-    100%{
-        opacity:0;
-        transform:translateY(-180px) translateX(var(--x)) scale(0.3);
-    }
+    0%{opacity:1;}
+    100%{opacity:0;transform:translateY(-150px) translateX(var(--x));}
 }
 </style>
 </head>
@@ -174,40 +124,40 @@ body{
 <body>
 
 <div class="top-lights">
-    <span class="bulb"></span>
-    <span class="bulb"></span>
-    <span class="bulb"></span>
-    <span class="bulb"></span>
-    <span class="bulb"></span>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
 </div>
 
-<div class="left-balloon">
-    <img src="https://pngimg.com/uploads/balloon/balloon_PNG4966.png">
+<div class="balloon">
+<img src="https://pngimg.com/uploads/balloon/balloon_PNG4966.png">
 </div>
 
-<div class="right-photo">
-    <img src="WhatsApp Image 2026-03-28 at 12.53.49 PM.jpeg" alt="Shruti Photo">
+<div class="photo">
+<img src="WhatsApp Image 2026-03-28 at 12.53.49 PM.jpeg">
 </div>
 
 <div class="card">
 
-    <div class="knife" id="knife">🔪</div>
+<div id="knife">🔪</div>
 
-    <h2>🎉 Happy Birthday Shruti 🎉</h2>
-    <p>Click the cake to cut 🎂</p>
+<h3>🎉 Happy Birthday Shruti🎉</h3>
+<p>Tap cake 🎂</p>
 
-    <div id="wholeCake" onclick="cutCake()">🎂</div>
+<div id="cake" onclick="start()">🎂</div>
 
-    <div class="split-cake" id="splitCake">
-        <div class="half left-half" id="leftHalf">🍰</div>
-        <div class="half right-half" id="rightHalf">🍰</div>
-    </div>
+<div class="split" id="split">
+<div class="part left">🍰</div>
+<div class="part right">🍰</div>
+</div>
 
-    <div id="msg">
-       💖 Dear Shruti,<br><br>
+<div id="msg">
+ 💖 Dear Shruti,<br><br>
 
 Happy Birthday 🎉<br>
-To my best friend, my biggest support, and the most amazing person I know 💕<br><br>
+my biggest support, and the most amazing person I know 💕<br><br>
 
 You are truly one of the kindest, strongest, and most beautiful souls I’ve ever met ✨<br>
 Your smile can brighten any day, and your caring nature makes everyone feel special 💖<br>
@@ -218,90 +168,102 @@ Please know that you mean the world to me, and I never want to lose you 💕<br>
 
 May God bless you with endless happiness, success, and love 💖<br>
 🎂 Happy Birthday once again 🎊
-
-    </div>
+</div>
 
 </div>
 
-<!-- 🎵 Song -->
-<audio id="birthdaySong" loop>
-    <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+<audio id="song">
+<source src="nastelbom-happy-birthday-495860.mp3">
 </audio>
 
 <script>
-let started = false;
+let started=false;
 
-function cutCake(){
+function start(){
 
-    if(started) return;
-    started = true;
+if(started) return;
+started=true;
 
-    // 🎵 Song starts only after click
-    document.getElementById("birthdaySong").play();
+document.getElementById("knife").style.left="120px";
 
-    document.getElementById("knife").style.left = "180px";
+setTimeout(()=>{
+document.getElementById("cake").style.display="none";
+document.getElementById("split").style.display="block";
 
-    setTimeout(() => {
-        document.getElementById("wholeCake").style.display = "none";
-        document.getElementById("splitCake").style.display = "block";
+document.querySelector(".left").style.transform="translateX(-30px)";
+document.querySelector(".right").style.transform="translateX(30px)";
+},1000);
 
-        document.getElementById("leftHalf").style.transform = "translateX(-50px)";
-        document.getElementById("rightHalf").style.transform = "translateX(50px)";
-    }, 1000);
+setTimeout(()=>{
+document.getElementById("msg").style.display="block";
+},1600);
 
-    setTimeout(() => {
-        document.getElementById("msg").style.display = "block";
-    }, 1800);
+setTimeout(()=>{
+document.getElementById("song").play();
+},1800);
 
-    setInterval(createRoundFirework, 1200);
-    setInterval(createAnar, 700);
+setTimeout(()=>{
+setInterval(cracker,900);
+setInterval(anar,700);
+},2000);
 }
 
-function createRoundFirework(){
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * (window.innerHeight * 0.45);
+/* 🎆 FULL SCREEN CRACKERS */
+function cracker(){
 
-    let colors = ["#ff4d6d","#66ccff","#ffd700","#ff9933","#ff66ff","#00ffcc"];
+let colors=["#ffd700","#ff4d6d","#66ccff","#00ffcc","#ff66ff"];
 
-    for(let i=0;i<36;i++){
-        let spark=document.createElement("div");
-        spark.className="spark";
+// random full screen position
+let x=Math.random()*window.innerWidth;
+let y=Math.random()*window.innerHeight*0.7;
 
-        let color=colors[Math.floor(Math.random()*colors.length)];
-
-        spark.style.left=x+"px";
-        spark.style.top=y+"px";
-        spark.style.background=color;
-        spark.style.boxShadow=`0 0 15px ${color},0 0 30px ${color}`;
-        spark.style.setProperty("--angle",(i*10)+"deg");
-
-        document.body.appendChild(spark);
-        setTimeout(()=>spark.remove(),1500);
-    }
+// sometimes burst on message
+if(Math.random() > 0.6){
+let msg=document.getElementById("msg");
+let rect=msg.getBoundingClientRect();
+x=rect.left + rect.width/2;
+y=rect.top + rect.height/2;
 }
 
-function createAnar(){
-    let x=Math.random()*window.innerWidth;
-    let y=window.innerHeight-20;
+for(let i=0;i<25;i++){
+let s=document.createElement("div");
+s.className="spark";
 
-    let colors=["#ffd700","#ffffff","#ff9933"];
+let color=colors[Math.floor(Math.random()*colors.length)];
 
-    for(let i=0;i<18;i++){
-        let anar=document.createElement("div");
-        anar.className="anar";
+s.style.left=x+"px";
+s.style.top=y+"px";
+s.style.background=color;
+s.style.boxShadow=`0 0 10px ${color}`;
+s.style.setProperty("--angle",(i*14)+"deg");
 
-        let spread=(Math.random()-0.5)*120+"px";
-        let color=colors[Math.floor(Math.random()*colors.length)];
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),1200);
+}
+}
 
-        anar.style.left=x+"px";
-        anar.style.top=y+"px";
-        anar.style.background=color;
-        anar.style.boxShadow=`0 0 10px ${color}`;
-        anar.style.setProperty("--x",spread);
+/* 🎇 Anar */
+function anar(){
+let x=Math.random()*window.innerWidth;
+let y=window.innerHeight;
 
-        document.body.appendChild(anar);
-        setTimeout(()=>anar.remove(),1200);
-    }
+let colors=["gold","orange","white"];
+
+for(let i=0;i<15;i++){
+let a=document.createElement("div");
+a.className="anar";
+
+let color=colors[Math.floor(Math.random()*colors.length)];
+
+a.style.left=x+"px";
+a.style.top=y+"px";
+a.style.background=color;
+a.style.boxShadow=`0 0 8px ${color}`;
+a.style.setProperty("--x",(Math.random()-0.5)*100+"px");
+
+document.body.appendChild(a);
+setTimeout(()=>a.remove(),1000);
+}
 }
 </script>
 
